@@ -1,0 +1,17 @@
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Infrastructure.deps.json
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Infrastructure.runtimeconfig.json
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Infrastructure.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Infrastructure.pdb
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Domain.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\bin\Debug\net8.0\HRManagementSystem.Domain.pdb
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManage.3F04E790.Up2Date
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\refint\HRManagementSystem.Infrastructure.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.pdb
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.genruntimeconfig.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\ref\HRManagementSystem.Infrastructure.dll

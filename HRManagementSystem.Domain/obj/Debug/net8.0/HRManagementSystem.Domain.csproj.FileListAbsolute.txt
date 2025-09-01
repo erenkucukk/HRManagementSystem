@@ -1,0 +1,14 @@
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\bin\Debug\net8.0\HRManagementSystem.Domain.deps.json
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\bin\Debug\net8.0\HRManagementSystem.Domain.runtimeconfig.json
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\bin\Debug\net8.0\HRManagementSystem.Domain.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\bin\Debug\net8.0\HRManagementSystem.Domain.pdb
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.csproj.AssemblyReference.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.AssemblyInfo.cs
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\refint\HRManagementSystem.Domain.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.pdb
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\HRManagementSystem.Domain.genruntimeconfig.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Domain\obj\Debug\net8.0\ref\HRManagementSystem.Domain.dll
