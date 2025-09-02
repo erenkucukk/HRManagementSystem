@@ -11,11 +11,19 @@ namespace HRManagementSystem.Domain.Entities
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string TCKimlik { get; set; }
+        public DateTime DogumTarihi { get; set; }
+        public string TelNo { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public DateTime HireDate { get; set; } // İşe giriş tarihi
-        public int DepartmentId { get; set; }  // Foreign Key
+        public string Position { get; set; }
+        public string WorkingStatus { get; set; }
+        public string PersonnelPhoto { get; set; }
+        public DateTime StartDate { get; set; }
+        public int TotalLeave { get; set; }
+        public int UsedLeave { get; set; }
+        public int DepartmentId { get; set; }
         public Department Department { get; set; }
-
     }
 }
+
+

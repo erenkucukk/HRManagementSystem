@@ -10,8 +10,7 @@ namespace HRManagementSystem.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] // Tüm endpointler için yetkilendirme gerekli
-
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
         private readonly EmployeeService _employeeService;
@@ -26,28 +25,6 @@ namespace HRManagementSystem.API.Controllers
         {
             var employees = await _employeeService.GetAllAsync();
             return Ok(employees);
-        }
-
-        [HttpGet("paged")]
-        public async Task<ActionResult<PagedResult<EmployeeDto>>> GetPaged(
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 20,
-            [FromQuery] int? departmentId = null,
-            [FromQuery] string? search = null,
-            [FromQuery] string? sortBy = "HireDate",
-            [FromQuery] string? sortDir = "desc")
-        {
-            var result = await _employeeService.GetPagedAsync(new EmployeeQuery
-            {
-                Page = page,
-                PageSize = pageSize,
-                DepartmentId = departmentId,
-                Search = search,
-                SortBy = sortBy,
-                SortDir = sortDir
-            });
-
-            return Ok(result);
         }
 
         [HttpGet("{id}")]

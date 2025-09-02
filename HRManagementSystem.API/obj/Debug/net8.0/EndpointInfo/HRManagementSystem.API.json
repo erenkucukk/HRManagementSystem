@@ -311,86 +311,6 @@
         }
       }
     },
-    "/api/Employee/paged": {
-      "get": {
-        "tags": [
-          "Employee"
-        ],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 20
-            }
-          },
-          {
-            "name": "departmentId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "HireDate"
-            }
-          },
-          {
-            "name": "sortDir",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmployeeDtoPagedResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmployeeDtoPagedResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmployeeDtoPagedResult"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Employee/{id}": {
       "get": {
         "tags": [
@@ -816,17 +736,45 @@
             "type": "string",
             "nullable": true
           },
+          "tcKimlik": {
+            "type": "string",
+            "nullable": true
+          },
+          "dogumTarihi": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "telNo": {
+            "type": "string",
+            "nullable": true
+          },
           "email": {
             "type": "string",
             "nullable": true
           },
-          "phoneNumber": {
+          "position": {
             "type": "string",
             "nullable": true
           },
-          "hireDate": {
+          "workingStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "totalLeave": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usedLeave": {
+            "type": "integer",
+            "format": "int32"
           },
           "departmentId": {
             "type": "integer",
@@ -904,17 +852,45 @@
             "type": "string",
             "nullable": true
           },
+          "tcKimlik": {
+            "type": "string",
+            "nullable": true
+          },
+          "dogumTarihi": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "telNo": {
+            "type": "string",
+            "nullable": true
+          },
           "email": {
             "type": "string",
             "nullable": true
           },
-          "phoneNumber": {
+          "position": {
             "type": "string",
             "nullable": true
           },
-          "hireDate": {
+          "workingStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "totalLeave": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usedLeave": {
+            "type": "integer",
+            "format": "int32"
           },
           "departmentId": {
             "type": "integer",
@@ -923,36 +899,6 @@
           "departmentName": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EmployeeDtoPagedResult": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EmployeeDto"
-            },
-            "nullable": true
-          },
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1034,17 +980,45 @@
             "type": "string",
             "nullable": true
           },
+          "tcKimlik": {
+            "type": "string",
+            "nullable": true
+          },
+          "dogumTarihi": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "telNo": {
+            "type": "string",
+            "nullable": true
+          },
           "email": {
             "type": "string",
             "nullable": true
           },
-          "phoneNumber": {
+          "position": {
             "type": "string",
             "nullable": true
           },
-          "hireDate": {
+          "workingStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "totalLeave": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usedLeave": {
+            "type": "integer",
+            "format": "int32"
           },
           "departmentId": {
             "type": "integer",

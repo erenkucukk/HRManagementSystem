@@ -17,3 +17,4 @@ C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Application\bin
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Application\bin\Debug\net8.0\HRManagementSystem.Domain.pdb
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Application\bin\Debug\net8.0\HRManagementSystem.Infrastructure.pdb
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Application\obj\Debug\net8.0\HRManage.21AD69E9.Up2Date
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Application\obj\Debug\net8.0\HRManagementSystem.Application.sourcelink.json

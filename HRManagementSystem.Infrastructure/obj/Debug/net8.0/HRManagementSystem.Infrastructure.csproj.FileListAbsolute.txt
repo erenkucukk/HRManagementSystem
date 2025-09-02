@@ -15,3 +15,4 @@ C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.pdb
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.genruntimeconfig.cache
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\ref\HRManagementSystem.Infrastructure.dll
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.Infrastructure\obj\Debug\net8.0\HRManagementSystem.Infrastructure.sourcelink.json

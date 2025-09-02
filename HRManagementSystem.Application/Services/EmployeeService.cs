@@ -14,7 +14,7 @@ namespace HRManagementSystem.Application.Services
 {
     public class EmployeeService
     {
-        private readonly HRDbContext _context; // DbContext doğrudan eklendi
+        private readonly HRDbContext _context;
         private readonly IRepository<Employee> _employeeRepository;
 
         public EmployeeService(IRepository<Employee> employeeRepository, HRDbContext context)
@@ -22,67 +22,12 @@ namespace HRManagementSystem.Application.Services
             _employeeRepository = employeeRepository;
             _context = context;
         }
-        public async Task<PagedResult<EmployeeDto>> GetPagedAsync(EmployeeQuery q)
-        {
-            var query = _context.Employees
-                .Include(e => e.Department)
-                .AsQueryable();
 
-            if (q.DepartmentId.HasValue)
-                query = query.Where(e => e.DepartmentId == q.DepartmentId.Value);
-
-            if (!string.IsNullOrWhiteSpace(q.Search))
-            {
-                var s = q.Search.Trim().ToLower();
-                query = query.Where(e =>
-                    e.FirstName.ToLower().Contains(s) ||
-                    e.LastName.ToLower().Contains(s) ||
-                    e.Email.ToLower().Contains(s));
-            }
-
-            // Sıralama
-            bool desc = string.Equals(q.SortDir, "desc", StringComparison.OrdinalIgnoreCase);
-            query = (q.SortBy?.ToLower()) switch
-            {
-                "firstname" => desc ? query.OrderByDescending(x => x.FirstName) : query.OrderBy(x => x.FirstName),
-                "lastname" => desc ? query.OrderByDescending(x => x.LastName) : query.OrderBy(x => x.LastName),
-                "email" => desc ? query.OrderByDescending(x => x.Email) : query.OrderBy(x => x.Email),
-                "hiredate" or _ => desc ? query.OrderByDescending(x => x.HireDate) : query.OrderBy(x => x.HireDate),
-            };
-
-            var total = await query.CountAsync();
-
-            var items = await query
-                .Skip((q.Page - 1) * q.PageSize)
-                .Take(q.PageSize)
-                .Select(e => new EmployeeDto
-                {
-                    Id = e.Id,
-                    FirstName = e.FirstName,
-                    LastName = e.LastName,
-                    Email = e.Email,
-                    PhoneNumber = e.PhoneNumber,
-                    HireDate = e.HireDate,
-                    DepartmentId = e.DepartmentId,
-                    DepartmentName = e.Department != null ? e.Department.Name : string.Empty
-                })
-                .ToListAsync();
-
-            return new PagedResult<EmployeeDto>
-            {
-                Items = items,
-                TotalCount = total,
-                PageNumber = q.Page,
-                PageSize = q.PageSize
-            };
-        }
-
-        // Tüm çalışanları departman bilgisiyle getir
         public async Task<List<EmployeeDto>> GetAllAsync()
         {
             var employees = await _context.Employees
-                                          .Include(e => e.Department) // Departmanı da çekiyoruz
-                                          .ToListAsync();
+                .Include(e => e.Department)
+                .ToListAsync();
 
             return employees
                 .Select(e => new EmployeeDto
@@ -90,21 +35,27 @@ namespace HRManagementSystem.Application.Services
                     Id = e.Id,
                     FirstName = e.FirstName,
                     LastName = e.LastName,
+                    TCKimlik = e.TCKimlik,
+                    DogumTarihi = e.DogumTarihi,
+                    TelNo = e.TelNo,
                     Email = e.Email,
-                    PhoneNumber = e.PhoneNumber,
-                    HireDate = e.HireDate,
+                    Position = e.Position,
+                    WorkingStatus = e.WorkingStatus,
+                    PersonnelPhoto = e.PersonnelPhoto,
+                    StartDate = e.StartDate,
+                    TotalLeave = e.TotalLeave,
+                    UsedLeave = e.UsedLeave,
                     DepartmentId = e.DepartmentId,
-                    DepartmentName = e.Department != null ? e.Department.Name : string.Empty
+                    DepartmentName = e.Department?.Name ?? string.Empty
                 })
                 .ToList();
         }
 
-        // Id'ye göre çalışan getir (departman bilgisiyle birlikte)
         public async Task<EmployeeDto?> GetByIdAsync(int id)
         {
             var employee = await _context.Employees
-                                         .Include(e => e.Department)
-                                         .FirstOrDefaultAsync(e => e.Id == id);
+                .Include(e => e.Department)
+                .FirstOrDefaultAsync(e => e.Id == id);
 
             if (employee == null) return null;
 
@@ -113,24 +64,37 @@ namespace HRManagementSystem.Application.Services
                 Id = employee.Id,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
+                TCKimlik = employee.TCKimlik,
+                DogumTarihi = employee.DogumTarihi,
+                TelNo = employee.TelNo,
                 Email = employee.Email,
-                PhoneNumber = employee.PhoneNumber,
-                HireDate = employee.HireDate,
+                Position = employee.Position,
+                WorkingStatus = employee.WorkingStatus,
+                PersonnelPhoto = employee.PersonnelPhoto,
+                StartDate = employee.StartDate,
+                TotalLeave = employee.TotalLeave,
+                UsedLeave = employee.UsedLeave,
                 DepartmentId = employee.DepartmentId,
-                DepartmentName = employee.Department != null ? employee.Department.Name : string.Empty
+                DepartmentName = employee.Department?.Name ?? string.Empty
             };
         }
 
-        // Yeni çalışan ekle
         public async Task<int> CreateAsync(CreateEmployeeDto dto)
         {
             var employee = new Employee
             {
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
+                TCKimlik = dto.TCKimlik,
+                DogumTarihi = dto.DogumTarihi,
+                TelNo = dto.TelNo,
                 Email = dto.Email,
-                PhoneNumber = dto.PhoneNumber,
-                HireDate = dto.HireDate,
+                Position = dto.Position,
+                WorkingStatus = dto.WorkingStatus,
+                PersonnelPhoto = dto.PersonnelPhoto,
+                StartDate = dto.StartDate,
+                TotalLeave = dto.TotalLeave,
+                UsedLeave = dto.UsedLeave,
                 DepartmentId = dto.DepartmentId
             };
 
@@ -139,7 +103,6 @@ namespace HRManagementSystem.Application.Services
             return employee.Id;
         }
 
-        // Çalışan güncelle
         public async Task<bool> UpdateAsync(int id, UpdateEmployeeDto dto)
         {
             var employee = await _employeeRepository.GetByIdAsync(id);
@@ -147,9 +110,16 @@ namespace HRManagementSystem.Application.Services
 
             employee.FirstName = dto.FirstName;
             employee.LastName = dto.LastName;
+            employee.TCKimlik = dto.TCKimlik;
+            employee.DogumTarihi = dto.DogumTarihi;
+            employee.TelNo = dto.TelNo;
             employee.Email = dto.Email;
-            employee.PhoneNumber = dto.PhoneNumber;
-            employee.HireDate = dto.HireDate;
+            employee.Position = dto.Position;
+            employee.WorkingStatus = dto.WorkingStatus;
+            employee.PersonnelPhoto = dto.PersonnelPhoto;
+            employee.StartDate = dto.StartDate;
+            employee.TotalLeave = dto.TotalLeave;
+            employee.UsedLeave = dto.UsedLeave;
             employee.DepartmentId = dto.DepartmentId;
 
             _employeeRepository.Update(employee);
@@ -157,7 +127,6 @@ namespace HRManagementSystem.Application.Services
             return true;
         }
 
-        // Çalışan sil
         public async Task<bool> DeleteAsync(int id)
         {
             var employee = await _employeeRepository.GetByIdAsync(id);
