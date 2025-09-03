@@ -1,12 +1,14 @@
 ﻿using HRManagementSystem.Application.Leave.DTOs;
-using HRManagementSystem.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
 using HRManagementSystem.Domain.Entities;
+using HRManagementSystem.Infrastructure.Persistence;
+using HRManagementSystem.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HRManagementSystem.Domain.Entities;
 
 namespace HRManagementSystem.Application.Services
 {
@@ -26,7 +28,11 @@ namespace HRManagementSystem.Application.Services
                 EmployeeId = dto.EmployeeId,
                 LeaveType = dto.LeaveType,
                 StartDate = dto.StartDate,
-                EndDate = dto.EndDate
+                EndDate = dto.EndDate,
+                Reason = dto.Reason,
+                Status = "Approved", // HR ekliyorsa direkt onaylı
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
             _context.Leaves.Add(leave);
@@ -47,10 +53,13 @@ namespace HRManagementSystem.Application.Services
             {
                 Id = leave.Id,
                 EmployeeId = leave.EmployeeId,
-                EmployeeName = leave.Employee.FirstName + " " + leave.Employee.LastName,
+                EmployeeName = leave.Employee != null
+                    ? $"{leave.Employee.FirstName} {leave.Employee.LastName}"
+                    : "",
                 LeaveType = leave.LeaveType,
                 StartDate = leave.StartDate,
                 EndDate = leave.EndDate,
+                Reason = leave.Reason,
                 Status = leave.Status,
                 CreatedAt = leave.CreatedAt,
                 UpdatedAt = leave.UpdatedAt
@@ -68,10 +77,13 @@ namespace HRManagementSystem.Application.Services
             {
                 Id = l.Id,
                 EmployeeId = l.EmployeeId,
-                EmployeeName = l.Employee.FirstName + " " + l.Employee.LastName,
+                EmployeeName = l.Employee != null
+                    ? $"{l.Employee.FirstName} {l.Employee.LastName}"
+                    : "",
                 LeaveType = l.LeaveType,
                 StartDate = l.StartDate,
                 EndDate = l.EndDate,
+                Reason = l.Reason,
                 Status = l.Status,
                 CreatedAt = l.CreatedAt,
                 UpdatedAt = l.UpdatedAt
@@ -84,7 +96,7 @@ namespace HRManagementSystem.Application.Services
             if (leave == null) return false;
 
             leave.Status = dto.Status;
-            leave.UpdatedAt = System.DateTime.UtcNow;
+            leave.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
             return true;

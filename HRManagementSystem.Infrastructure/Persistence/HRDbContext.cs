@@ -26,6 +26,11 @@ namespace HRManagementSystem.Infrastructure.Persistence
                 .HasForeignKey(e => e.DepartmentId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Leave>()
+                .HasOne(l => l.Employee)
+                .WithMany(e => e.Leaves)
+                .HasForeignKey(l => l.EmployeeId);
+
             // Employee yeni alanlar & kurallar
             modelBuilder.Entity<Employee>(e =>
             {
