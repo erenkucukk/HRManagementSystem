@@ -11,7 +11,7 @@ namespace HRManagementSystem.Domain.Entities
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string TCKimlik { get; set; }
+        public string TCKimik { get; set; }
         public DateTime DogumTarihi { get; set; }
         public string TelNo { get; set; }
         public string Email { get; set; }
@@ -19,7 +19,7 @@ namespace HRManagementSystem.Domain.Entities
         public string WorkingStatus { get; set; }
         public string PersonnelPhoto { get; set; }
         public DateTime StartDate { get; set; }
-        public int TotalLeave { get; set; }
+        public int TotaLeave { get; set; }
         public int UsedLeave { get; set; }
         public int DepartmentId { get; set; }
         public Department Department { get; set; }

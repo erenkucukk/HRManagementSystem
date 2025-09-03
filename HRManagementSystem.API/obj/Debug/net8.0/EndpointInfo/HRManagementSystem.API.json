@@ -801,6 +801,10 @@
           "endDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -930,6 +934,10 @@
             "type": "string",
             "format": "date-time"
           },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
           "status": {
             "type": "string",
             "nullable": true
@@ -1030,6 +1038,22 @@
       "UpdateLeaveDto": {
         "type": "object",
         "properties": {
+          "leaveType": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
           "status": {
             "type": "string",
             "nullable": true
