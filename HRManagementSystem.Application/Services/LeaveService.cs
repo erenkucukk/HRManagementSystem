@@ -23,7 +23,13 @@ namespace HRManagementSystem.Application.Services
 
         public async Task<LeaveDto> CreateLeaveAsync(CreateLeaveDto dto)
         {
-            var leave = new Domain.Entities.Leave()
+            // 1. Employee kontrolü
+            var employee = await _context.Employees.FindAsync(dto.EmployeeId);
+            if (employee == null)
+                throw new ArgumentException($"Employee with Id {dto.EmployeeId} does not exist.");
+
+            // 2. Leave nesnesini oluştur
+            var leave = new Domain.Entities.Leave
             {
                 EmployeeId = dto.EmployeeId,
                 LeaveType = dto.LeaveType,
@@ -35,9 +41,11 @@ namespace HRManagementSystem.Application.Services
                 UpdatedAt = DateTime.UtcNow
             };
 
+            // 3. Veritabanına ekle
             _context.Leaves.Add(leave);
             await _context.SaveChangesAsync();
 
+            // 4. DTO olarak geri döndür
             return await GetLeaveByIdAsync(leave.Id);
         }
 
