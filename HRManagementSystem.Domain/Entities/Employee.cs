@@ -23,6 +23,8 @@ namespace HRManagementSystem.Domain.Entities
         public int UsedLeave { get; set; }
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
+        public string Adres { get; set; }
+
 
         public ICollection<Leave> Leaves { get; set; } = new List<Leave>();
 

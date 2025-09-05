@@ -21,5 +21,6 @@ namespace HRManagementSystem.Application.Employees.DTOs
         public int TotalLeave { get; set; }
         public int UsedLeave { get; set; }
         public int DepartmentId { get; set; }
+        public string Adres { get; set; }
     }
 }

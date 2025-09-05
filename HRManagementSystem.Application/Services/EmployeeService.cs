@@ -42,6 +42,7 @@ namespace HRManagementSystem.Application.Services
                     Position = e.Position,
                     WorkingStatus = e.WorkingStatus,
                     PersonnelPhoto = e.PersonnelPhoto,
+                    Adres = e.Adres,
                     StartDate = e.StartDate,
                     TotalLeave = e.TotalLeave,
                     UsedLeave = e.UsedLeave,

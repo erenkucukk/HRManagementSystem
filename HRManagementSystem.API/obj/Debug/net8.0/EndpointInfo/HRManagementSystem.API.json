@@ -779,6 +779,10 @@
           "departmentId": {
             "type": "integer",
             "format": "int32"
+          },
+          "adres": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -901,6 +905,10 @@
             "format": "int32"
           },
           "departmentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "adres": {
             "type": "string",
             "nullable": true
           }
@@ -1031,6 +1039,10 @@
           "departmentId": {
             "type": "integer",
             "format": "int32"
+          },
+          "adres": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
