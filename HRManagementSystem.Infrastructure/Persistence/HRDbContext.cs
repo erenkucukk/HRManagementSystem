@@ -42,7 +42,7 @@ namespace HRManagementSystem.Infrastructure.Persistence
                 e.Property(x => x.Email).IsRequired().HasMaxLength(200);
                 e.Property(x => x.Position).HasMaxLength(100);
                 e.Property(x => x.WorkingStatus).HasMaxLength(100);
-                e.Property(x => x.PersonnelPhoto).HasMaxLength(500);
+                e.Property(x => x.PersonnelPhoto).HasColumnType("nvarchar(max)");
                 e.Property(x => x.StartDate).IsRequired();
                 e.Property(x => x.TotalLeave).IsRequired();
                 e.Property(x => x.UsedLeave).IsRequired();

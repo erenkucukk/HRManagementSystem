@@ -45,8 +45,7 @@ namespace HRManagementSystem.Application.Employees.Validators
                 .NotEmpty().WithMessage("Çalışma durumu girilmelidir.")
                 .MaximumLength(100).WithMessage("Çalışma durumu en fazla 100 karakter olabilir.");
 
-            //RuleFor(x => x.PersonnelPhoto)
-            //    .MaximumLength(10000).WithMessage("Fotoğraf yolu en fazla 10000 karakter olabilir.");
+
 
             RuleFor(x => x.StartDate)
                 .NotEmpty().WithMessage("İşe başlama tarihi girilmelidir.")
