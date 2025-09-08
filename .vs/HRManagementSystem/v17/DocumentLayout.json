@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\services\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\employees\\validators\\updateemployeedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\employees\\validators\\updateemployeedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|solutionrelative:hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 258,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:57:25.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Leave.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:56:50.223Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,48 +62,9 @@
               "RelativeDocumentMoniker": "HRManagementSystem.Application\\Services\\LeaveService.cs",
               "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\LeaveService.cs",
               "RelativeToolTip": "HRManagementSystem.Application\\Services\\LeaveService.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAUwG0AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAYwIUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-08T08:18:55.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateEmployeeDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
-              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
-              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
-              "RelativeToolTip": "HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAYwD8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T09:06:43.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Services\\EmployeeService.cs",
-              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "HRManagementSystem.Application\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAAwGwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T09:59:01.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LeaveController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\LeaveController.cs",
-              "RelativeDocumentMoniker": "HRManagementSystem.API\\Controllers\\LeaveController.cs",
-              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\LeaveController.cs",
-              "RelativeToolTip": "HRManagementSystem.API\\Controllers\\LeaveController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwC0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T08:20:05.043Z",
               "EditorCaption": ""
             }
           ]

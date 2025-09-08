@@ -42,11 +42,19 @@ namespace HRManagementSystem.Application.Services
                 UpdatedAt = DateTime.UtcNow
             };
 
-            // 3. Veritabanına ekle
+            // 3. Kullanılan izin güncellemesi
+            // İzin süresi hesaplanıyor (başlangıç ve bitiş dahil)
+            int leaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
+            if (leaveDays < 0) leaveDays = 0; // Negatif gün olmasın
+
+            employee.UsedLeave += leaveDays;
+
+            // 4. Veritabanına ekle
             _context.Leaves.Add(leave);
+            _context.Employees.Update(employee); // Güncellenen employee'yi de ekle
             await _context.SaveChangesAsync();
 
-            // 4. DTO olarak geri döndür
+            // 5. DTO olarak geri döndür
             return await GetLeaveByIdAsync(leave.Id);
         }
 
@@ -101,9 +109,29 @@ namespace HRManagementSystem.Application.Services
 
         public async Task<bool> UpdateLeaveAsync(int id, UpdateLeaveDto dto)
         {
-            var leave = await _context.Leaves.FindAsync(id);
+            var leave = await _context.Leaves
+                .Include(l => l.Employee)
+                .FirstOrDefaultAsync(l => l.Id == id);
+
             if (leave == null) return false;
 
+            // 1. Eski izin gün sayısını hesapla ve personelden çıkar
+            int oldLeaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
+            if (oldLeaveDays < 0) oldLeaveDays = 0;
+
+            // 2. Yeni izin gün sayısını hesapla
+            int newLeaveDays = (int)(dto.EndDate.Date - dto.StartDate.Date).TotalDays + 1;
+            if (newLeaveDays < 0) newLeaveDays = 0;
+
+            // 3. UsedLeave güncellemesi
+            if (leave.Employee != null)
+            {
+                leave.Employee.UsedLeave = leave.Employee.UsedLeave - oldLeaveDays + newLeaveDays;
+                if (leave.Employee.UsedLeave < 0)
+                    leave.Employee.UsedLeave = 0;
+            }
+
+            // 4. Leave güncelle
             leave.LeaveType = dto.LeaveType;
             leave.StartDate = dto.StartDate;
             leave.EndDate = dto.EndDate;
@@ -119,9 +147,24 @@ namespace HRManagementSystem.Application.Services
 
         public async Task<bool> DeleteLeaveAsync(int id)
         {
-            var leave = await _context.Leaves.FindAsync(id);
+            var leave = await _context.Leaves
+                .Include(l => l.Employee)
+                .FirstOrDefaultAsync(l => l.Id == id);
+
             if (leave == null) return false;
 
+            // 1. UsedLeave azalt
+            if (leave.Employee != null)
+            {
+                int leaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
+                if (leaveDays < 0) leaveDays = 0;
+
+                leave.Employee.UsedLeave -= leaveDays;
+                if (leave.Employee.UsedLeave < 0)
+                    leave.Employee.UsedLeave = 0; // Negatif olmasın
+            }
+
+            // 2. Veritabanından kaldır
             _context.Leaves.Remove(leave);
             await _context.SaveChangesAsync();
             return true;
