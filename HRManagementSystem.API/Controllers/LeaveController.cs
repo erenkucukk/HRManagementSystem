@@ -40,9 +40,9 @@ namespace HRManagementSystem.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateLeaveDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateLeaveDto dto)
         {
-            var result = await _leaveService.UpdateLeaveStatusAsync(id, dto);
+            var result = await _leaveService.UpdateLeaveAsync(id, dto);
             if (!result) return NotFound();
             return NoContent();
         }

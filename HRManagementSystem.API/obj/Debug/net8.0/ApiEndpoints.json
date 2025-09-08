@@ -307,7 +307,7 @@
   },
   {
     "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
-    "Method": "UpdateStatus",
+    "Method": "Update",
     "RelativePath": "api/Leave/{id}",
     "HttpMethod": "PUT",
     "IsController": true,

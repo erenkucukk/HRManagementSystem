@@ -1,4 +1,6 @@
-﻿using HRManagementSystem.Application.Leave.DTOs;
+﻿using HRManagementSystem.Application.Employees.DTOs;
+using HRManagementSystem.Application.Leave.DTOs;
+using HRManagementSystem.Domain.Entities;
 using HRManagementSystem.Domain.Entities;
 using HRManagementSystem.Infrastructure.Persistence;
 using HRManagementSystem.Infrastructure.Repositories;
@@ -8,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HRManagementSystem.Domain.Entities;
 
 namespace HRManagementSystem.Application.Services
 {
@@ -98,17 +99,23 @@ namespace HRManagementSystem.Application.Services
             }).ToList();
         }
 
-        public async Task<bool> UpdateLeaveStatusAsync(int id, UpdateLeaveDto dto)
+        public async Task<bool> UpdateLeaveAsync(int id, UpdateLeaveDto dto)
         {
             var leave = await _context.Leaves.FindAsync(id);
             if (leave == null) return false;
 
+            leave.LeaveType = dto.LeaveType;
+            leave.StartDate = dto.StartDate;
+            leave.EndDate = dto.EndDate;
+            leave.Reason = dto.Reason;
             leave.Status = dto.Status;
             leave.UpdatedAt = DateTime.UtcNow;
 
+            _context.Update(leave);
             await _context.SaveChangesAsync();
             return true;
         }
+
 
         public async Task<bool> DeleteLeaveAsync(int id)
         {

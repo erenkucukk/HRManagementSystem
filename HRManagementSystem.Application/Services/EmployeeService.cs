@@ -71,6 +71,7 @@ namespace HRManagementSystem.Application.Services
                 Email = employee.Email,
                 Position = employee.Position,
                 WorkingStatus = employee.WorkingStatus,
+                Adres = employee.Adres,
                 PersonnelPhoto = employee.PersonnelPhoto,
                 StartDate = employee.StartDate,
                 TotalLeave = employee.TotalLeave,
@@ -90,6 +91,7 @@ namespace HRManagementSystem.Application.Services
                 DogumTarihi = dto.DogumTarihi,
                 TelNo = dto.TelNo,
                 Email = dto.Email,
+                Adres = dto.Adres,
                 Position = dto.Position,
                 WorkingStatus = dto.WorkingStatus,
                 PersonnelPhoto = dto.PersonnelPhoto,
@@ -115,6 +117,7 @@ namespace HRManagementSystem.Application.Services
             employee.DogumTarihi = dto.DogumTarihi;
             employee.TelNo = dto.TelNo;
             employee.Email = dto.Email;
+            employee.Adres = dto.Adres;
             employee.Position = dto.Position;
             employee.WorkingStatus = dto.WorkingStatus;
             employee.PersonnelPhoto = dto.PersonnelPhoto;
