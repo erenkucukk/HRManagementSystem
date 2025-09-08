@@ -48,7 +48,7 @@ namespace HRManagementSystem.Application.Services
             if (leaveDays < 0) leaveDays = 0; // Negatif gün olmasın
 
             employee.UsedLeave += leaveDays;
-
+            employee.WorkingStatus = "İzinli";
             // 4. Veritabanına ekle
             _context.Leaves.Add(leave);
             _context.Employees.Update(employee); // Güncellenen employee'yi de ekle
@@ -153,18 +153,31 @@ namespace HRManagementSystem.Application.Services
 
             if (leave == null) return false;
 
+            var employee = leave.Employee;
+
             // 1. UsedLeave azalt
-            if (leave.Employee != null)
+            if (employee != null)
             {
                 int leaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
                 if (leaveDays < 0) leaveDays = 0;
 
-                leave.Employee.UsedLeave -= leaveDays;
-                if (leave.Employee.UsedLeave < 0)
-                    leave.Employee.UsedLeave = 0; // Negatif olmasın
+                employee.UsedLeave -= leaveDays;
+                if (employee.UsedLeave < 0)
+                    employee.UsedLeave = 0; // Negatif olmasın
+
+                // 2. Personelin başka aktif izni var mı kontrol et
+                var now = DateTime.Now.Date;
+                bool hasOtherActiveLeave = await _context.Leaves
+                    .AnyAsync(l => l.EmployeeId == employee.Id && l.Id != leave.Id && l.EndDate.Date >= now);
+
+                if (!hasOtherActiveLeave)
+                {
+                    employee.WorkingStatus = "Çalışıyor";
+                    _context.Employees.Update(employee);
+                }
             }
 
-            // 2. Veritabanından kaldır
+            // 3. Veritabanından kaldır
             _context.Leaves.Remove(leave);
             await _context.SaveChangesAsync();
             return true;

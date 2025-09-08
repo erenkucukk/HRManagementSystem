@@ -44,10 +44,8 @@ namespace HRManagementSystem.Application.Employees.Validators
                 .NotEmpty().WithMessage("Çalışma durumu girilmelidir.")
                 .MaximumLength(100).WithMessage("Çalışma durumu en fazla 100 karakter olabilir.");
 
-
             RuleFor(x => x.StartDate)
-                .NotEmpty().WithMessage("İşe başlama tarihi girilmelidir.")
-                .LessThanOrEqualTo(DateTime.Today).WithMessage("İşe başlama tarihi gelecekte olamaz.");
+                .NotEmpty().WithMessage("İşe başlama tarihi girilmelidir.");
 
             RuleFor(x => x.TotalLeave)
                 .GreaterThanOrEqualTo(0).WithMessage("Toplam izin en az 0 olmalıdır.");
