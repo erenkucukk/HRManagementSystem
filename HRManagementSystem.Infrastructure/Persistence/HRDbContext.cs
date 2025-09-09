@@ -16,6 +16,8 @@ namespace HRManagementSystem.Infrastructure.Persistence
         public DbSet<Department> Departments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Leave> Leaves { get; set; }
+        public DbSet<ExpenseHistory> ExpenseHistories { get; set; }
+        public DbSet<ExpenseReceipt> ExpenseReceipts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -49,7 +51,23 @@ namespace HRManagementSystem.Infrastructure.Persistence
                 e.Property(x => x.UsedLeave).IsRequired();
                 e.HasIndex(x => x.Email).IsUnique();
                 e.HasIndex(x => x.TCKimlik).IsUnique();
+                e.Property(x => x.Salary).HasDefaultValue(0);
+                e.Property(x => x.MealCost).HasDefaultValue(0);
+                e.Property(x => x.TransportCost).HasDefaultValue(0);
+                e.Property(x => x.OtherCost).HasDefaultValue(0);
             });
+
+            modelBuilder.Entity<ExpenseHistory>()
+                .HasOne(eh => eh.Employee)
+                .WithMany(e => e.ExpenseHistories)
+                .HasForeignKey(eh => eh.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ExpenseReceipt>()
+                .HasOne(er => er.ExpenseHistory)
+                .WithMany(eh => eh.Receipts)
+                .HasForeignKey(er => er.ExpenseHistoryId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }

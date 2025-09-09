@@ -3,20 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\services\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\services\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|solutionrelative:hrmanagementsystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|solutionrelative:hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\expensehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\expensehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.infrastructure\\persistence\\hrdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|solutionrelative:hrmanagementsystem.infrastructure\\persistence\\hrdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\expense\\dtos\\updatecostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\expense\\dtos\\updatecostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|solutionrelative:hrmanagementsystem.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\expense\\dtos\\expensehistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\expense\\dtos\\expensehistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.infrastructure\\persistence\\hrdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|solutionrelative:hrmanagementsystem.infrastructure\\persistence\\hrdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\leave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{708E6EC6-8AA2-494D-AB57-456953ABA841}|HRManagementSystem.Domain\\HRManagementSystem.Domain.csproj|solutionrelative:hrmanagementsystem.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\employees\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\employees\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\employees\\dtos\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\employees\\dtos\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\employees\\dtos\\createemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\employees\\dtos\\createemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.infrastructure\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|solutionrelative:hrmanagementsystem.infrastructure\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F1BA43C-EE5C-4CAB-AA36-1DBCF0DC4785}|HRManagementSystem.Infrastructure\\HRManagementSystem.Infrastructure.csproj|solutionrelative:hrmanagementsystem.infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\services\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|solutionrelative:hrmanagementsystem.application\\services\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E03B976D-C32A-4937-AD9F-F22F5FC05707}|HRManagementSystem.API\\HRManagementSystem.API.csproj|solutionrelative:hrmanagementsystem.api\\controllers\\leavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5678D480-F996-4C41-9196-6813092E6961}|HRManagementSystem.Application\\HRManagementSystem.Application.csproj|c:\\users\\asus\\source\\repos\\hrmanagementsystem\\hrmanagementsystem.application\\employees\\validators\\updateemployeedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,28 +82,222 @@
       "DocumentGroups": [
         {
           "DockedWidth": 258,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Program.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.API\\Program.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Program.cs",
+              "RelativeToolTip": "HRManagementSystem.API\\Program.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:18:29.532Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateCostDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Expense\\DTOs\\UpdateCostDto.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Expense\\DTOs\\UpdateCostDto.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Expense\\DTOs\\UpdateCostDto.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Expense\\DTOs\\UpdateCostDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:11:38.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExpenseHistoryDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Expense\\DTOs\\ExpenseHistoryDto.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Expense\\DTOs\\ExpenseHistoryDto.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Expense\\DTOs\\ExpenseHistoryDto.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Expense\\DTOs\\ExpenseHistoryDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:11:14.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ExpenseHistory.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\ExpenseHistory.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\ExpenseHistory.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\ExpenseHistory.cs",
+              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\ExpenseHistory.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:08:56.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.API\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "HRManagementSystem.API\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAYwE0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:59.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Leave.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Leave.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:56:50.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAjwLoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:18.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HRDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Persistence\\HRDbContext.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Infrastructure\\Persistence\\HRDbContext.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Persistence\\HRDbContext.cs",
+              "RelativeToolTip": "HRManagementSystem.Infrastructure\\Persistence\\HRDbContext.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA3wBMAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:05:55.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EmployeeDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\EmployeeDto.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Employees\\DTOs\\EmployeeDto.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\EmployeeDto.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Employees\\DTOs\\EmployeeDto.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA0wBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:31.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UpdateEmployeeDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\UpdateEmployeeDto.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Employees\\DTOs\\UpdateEmployeeDto.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\UpdateEmployeeDto.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Employees\\DTOs\\UpdateEmployeeDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA0wBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:40.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HRDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Persistence\\HRDbContextFactory.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Infrastructure\\Persistence\\HRDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Persistence\\HRDbContextFactory.cs",
+              "RelativeToolTip": "HRManagementSystem.Infrastructure\\Persistence\\HRDbContextFactory.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:00.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreateEmployeeDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\CreateEmployeeDto.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Application\\Employees\\DTOs\\CreateEmployeeDto.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\DTOs\\CreateEmployeeDto.cs",
+              "RelativeToolTip": "HRManagementSystem.Application\\Employees\\DTOs\\CreateEmployeeDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA0wBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:36.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Employee.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAA6wCIAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:57:25.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Repositories\\IRepository.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Infrastructure\\Repositories\\IRepository.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Repositories\\IRepository.cs",
+              "RelativeToolTip": "HRManagementSystem.Infrastructure\\Repositories\\IRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:04.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "HRManagementSystem.Infrastructure\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Infrastructure\\Repositories\\Repository.cs",
+              "RelativeToolTip": "HRManagementSystem.Infrastructure\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA6wB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:06:06.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "LeaveController.cs",
               "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\LeaveController.cs",
               "RelativeDocumentMoniker": "HRManagementSystem.API\\Controllers\\LeaveController.cs",
               "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.API\\Controllers\\LeaveController.cs",
               "RelativeToolTip": "HRManagementSystem.API\\Controllers\\LeaveController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T13:03:48.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T13:03:48.477Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 17,
               "Title": "UpdateEmployeeDtoValidator.cs",
               "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
               "RelativeDocumentMoniker": "HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
@@ -59,44 +305,17 @@
               "RelativeToolTip": "HRManagementSystem.Application\\Employees\\Validators\\UpdateEmployeeDtoValidator.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAewBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T11:58:22.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T11:58:22.015Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
-              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Employee.cs",
-              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Employee.cs",
-              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Employee.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA+wCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T08:57:25.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Leave.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
-              "RelativeDocumentMoniker": "HRManagementSystem.Domain\\Entities\\Leave.cs",
-              "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Domain\\Entities\\Leave.cs",
-              "RelativeToolTip": "HRManagementSystem.Domain\\Entities\\Leave.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T08:56:50.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 15,
               "Title": "LeaveService.cs",
               "DocumentMoniker": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\LeaveService.cs",
               "RelativeDocumentMoniker": "HRManagementSystem.Application\\Services\\LeaveService.cs",
               "ToolTip": "C:\\Users\\asus\\source\\repos\\HRManagementSystem\\HRManagementSystem.Application\\Services\\LeaveService.cs",
               "RelativeToolTip": "HRManagementSystem.Application\\Services\\LeaveService.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAYwLcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwIYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-08T08:18:55.93Z",
               "EditorCaption": ""

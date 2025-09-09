@@ -112,6 +112,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("MyPolicy");
 
+app.UseStaticFiles(); // wwwroot'u dýþarý açar
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

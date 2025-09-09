@@ -412,6 +412,144 @@
         }
       }
     },
+    "/api/Employee/{id}/cost": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Salary": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "MealCost": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "TransportCost": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "OtherCost": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ExpenseDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Receipts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Salary": {
+                  "style": "form"
+                },
+                "MealCost": {
+                  "style": "form"
+                },
+                "TransportCost": {
+                  "style": "form"
+                },
+                "OtherCost": {
+                  "style": "form"
+                },
+                "ExpenseDate": {
+                  "style": "form"
+                },
+                "Receipts": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Employee/{id}/expense-history": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExpenseHistoryDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExpenseHistoryDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExpenseHistoryDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Leave": {
       "get": {
         "tags": [
@@ -910,6 +1048,31 @@
           },
           "adres": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExpenseHistoryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "receiptUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },

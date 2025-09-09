@@ -180,3 +180,5 @@ C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\bin\Debug\n
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.sourcelink.json
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\bin\Debug\net8.0\HRManagementSystem.API.staticwebassets.runtime.json
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll

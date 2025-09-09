@@ -1,6 +1,7 @@
 ﻿using HRManagementSystem.Application.Common;
 using HRManagementSystem.Application.DTOs;
 using HRManagementSystem.Application.Employees.DTOs;
+using HRManagementSystem.Application.Expense.DTOs;
 using HRManagementSystem.Domain.Entities;
 using HRManagementSystem.Infrastructure.Persistence;
 using HRManagementSystem.Infrastructure.Repositories;
@@ -139,6 +140,67 @@ namespace HRManagementSystem.Application.Services
             _employeeRepository.Remove(employee);
             await _employeeRepository.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<bool> AddCostAsync(int employeeId, UpdateCostDto dto)
+        {
+            var employee = await _employeeRepository.GetByIdAsync(employeeId);
+            if (employee == null) return false;
+
+            employee.Salary += dto.Salary ?? 0;
+            employee.MealCost += dto.MealCost ?? 0;
+            employee.TransportCost += dto.TransportCost ?? 0;
+            employee.OtherCost += dto.OtherCost ?? 0;
+
+            var totalExpense = (dto.Salary ?? 0) + (dto.MealCost ?? 0) + (dto.TransportCost ?? 0) + (dto.OtherCost ?? 0);
+
+            var expenseHistory = new ExpenseHistory
+            {
+                Amount = totalExpense,
+                Date = dto.ExpenseDate,
+                Receipts = new List<ExpenseReceipt>()
+            };
+
+            // Fiş dosyalarını kaydet (örnek, wwwroot/uploads)
+            if (dto.Receipts != null && dto.Receipts.Any())
+            {
+                foreach (var file in dto.Receipts)
+                {
+                    var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    var uploads = Path.Combine("wwwroot", "uploads", fileName);
+                    using (var fs = new FileStream(uploads, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fs);
+                    }
+                    expenseHistory.Receipts.Add(new ExpenseReceipt { FileUrl = "/uploads/" + fileName });
+                }
+            }
+
+            employee.ExpenseHistories.Add(expenseHistory);
+            _employeeRepository.Update(employee);
+            await _employeeRepository.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<ExpenseHistoryDto>> GetExpenseHistoryAsync(int employeeId, DateTime? date = null)
+        {
+            var histories = await _context.ExpenseHistories
+                .Include(eh => eh.Receipts)
+                .Where(eh => eh.EmployeeId == employeeId)
+                .ToListAsync();
+
+            if (date.HasValue)
+            {
+                histories = histories.Where(h => h.Date.Date == date.Value.Date).ToList();
+            }
+
+            return histories.Select(h => new ExpenseHistoryDto
+            {
+                Id = h.Id,
+                Amount = h.Amount,
+                Date = h.Date,
+                ReceiptUrls = h.Receipts.Select(r => r.FileUrl).ToList()
+            }).ToList();
         }
     }
 }

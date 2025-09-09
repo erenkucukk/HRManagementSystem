@@ -2,6 +2,7 @@
 using HRManagementSystem.Application.DTOs;
 using HRManagementSystem.Application.Employees;
 using HRManagementSystem.Application.Employees.DTOs;
+using HRManagementSystem.Application.Expense.DTOs;
 using HRManagementSystem.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -59,6 +60,21 @@ namespace HRManagementSystem.API.Controllers
             if (!result)
                 return NotFound();
             return NoContent();
+        }
+
+        [HttpPut("{id}/cost")]
+        public async Task<IActionResult> AddCost(int id, [FromForm] UpdateCostDto dto)
+        {
+            var result = await _employeeService.AddCostAsync(id, dto);
+            if (!result) return NotFound();
+            return Ok();
+        }
+
+        [HttpGet("{id}/expense-history")]
+        public async Task<ActionResult<List<ExpenseHistoryDto>>> GetExpenseHistory(int id, [FromQuery] DateTime? date = null)
+        {
+            var history = await _employeeService.GetExpenseHistoryAsync(id, date);
+            return Ok(history);
         }
     }
 }

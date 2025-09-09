@@ -24,9 +24,15 @@ namespace HRManagementSystem.Domain.Entities
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
         public string Adres { get; set; }
-
-
         public ICollection<Leave> Leaves { get; set; } = new List<Leave>();
+
+        // COST EKLERİ
+        public decimal Salary { get; set; }
+        public decimal MealCost { get; set; }
+        public decimal TransportCost { get; set; }
+        public decimal OtherCost { get; set; }
+
+        public ICollection<ExpenseHistory> ExpenseHistories { get; set; } = new List<ExpenseHistory>();
 
     }
 }

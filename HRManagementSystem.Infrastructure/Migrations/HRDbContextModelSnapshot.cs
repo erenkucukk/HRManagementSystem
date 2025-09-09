@@ -73,6 +73,16 @@ namespace HRManagementSystem.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<decimal>("MealCost")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
+
+                    b.Property<decimal>("OtherCost")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
+
                     b.Property<string>("PersonnelPhoto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -81,6 +91,11 @@ namespace HRManagementSystem.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal>("Salary")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -97,6 +112,11 @@ namespace HRManagementSystem.Infrastructure.Migrations
 
                     b.Property<int>("TotalLeave")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("TransportCost")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<int>("UsedLeave")
                         .HasColumnType("int");
@@ -117,6 +137,52 @@ namespace HRManagementSystem.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.ExpenseHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("ExpenseHistories");
+                });
+
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.ExpenseReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ExpenseHistoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FileUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExpenseHistoryId");
+
+                    b.ToTable("ExpenseReceipts");
                 });
 
             modelBuilder.Entity("HRManagementSystem.Domain.Entities.Leave", b =>
@@ -197,6 +263,28 @@ namespace HRManagementSystem.Infrastructure.Migrations
                     b.Navigation("Department");
                 });
 
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.ExpenseHistory", b =>
+                {
+                    b.HasOne("HRManagementSystem.Domain.Entities.Employee", "Employee")
+                        .WithMany("ExpenseHistories")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.ExpenseReceipt", b =>
+                {
+                    b.HasOne("HRManagementSystem.Domain.Entities.ExpenseHistory", "ExpenseHistory")
+                        .WithMany("Receipts")
+                        .HasForeignKey("ExpenseHistoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ExpenseHistory");
+                });
+
             modelBuilder.Entity("HRManagementSystem.Domain.Entities.Leave", b =>
                 {
                     b.HasOne("HRManagementSystem.Domain.Entities.Employee", "Employee")
@@ -215,7 +303,14 @@ namespace HRManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("HRManagementSystem.Domain.Entities.Employee", b =>
                 {
+                    b.Navigation("ExpenseHistories");
+
                     b.Navigation("Leaves");
+                });
+
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.ExpenseHistory", b =>
+                {
+                    b.Navigation("Receipts");
                 });
 #pragma warning restore 612, 618
         }
