@@ -8,6 +8,10 @@ using System.Text;
 using HRManagementSystem.Application.DTOs;
 using HRManagementSystem.Application.Employees.Validators;
 
+// Hangfire paketleri
+using Hangfire;
+using Hangfire.MemoryStorage; // Demo/test için, prod'da SQL tavsiye edilir
+
 var builder = WebApplication.CreateBuilder(args);
 
 // ----------------------------
@@ -19,6 +23,9 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<LeaveService>();
 
+// Hangfire job servisini ekle (aþaðýda kodunu bulacaksýn)
+builder.Services.AddScoped<LeaveJobService>();
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddDbContext<HRDbContext>(options =>
@@ -28,6 +35,15 @@ builder.Services.AddDbContext<HRDbContext>(options =>
 builder.Services
     .AddControllers()
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateEmployeeDtoValidator>());
+
+// ----------------------------
+// Hangfire konfigürasyonu
+// ----------------------------
+builder.Services.AddHangfire(config =>
+{
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddHangfireServer();
 
 // ----------------------------
 // 2?? Swagger + JWT
@@ -119,6 +135,23 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Hangfire dashboard (opsiyonel, istersen kaldýrabilirsin)
+app.UseHangfireDashboard(); // /hangfire ile dashboard'a eriþebilirsin
+
 app.MapControllers();
+
+// ----------------------------
+// 7?? Hangfire job'u baþlat
+// ----------------------------
+using (var scope = app.Services.CreateScope())
+{
+    var jobService = scope.ServiceProvider.GetRequiredService<LeaveJobService>();
+    // Her gün saat 03:00'te çalýþacak þekilde ayarlandý
+    RecurringJob.AddOrUpdate(
+        "AutoUpdateEmployeeStatus",
+        () => jobService.AutoUpdateEmployeeStatusAsync(),
+            "0 3 * * *" // Cron.Daily de yazabilirsin (her gece 00:00)
+    );
+}
 
 app.Run();

@@ -37,7 +37,7 @@ namespace HRManagementSystem.Application.Services
                 StartDate = dto.StartDate,
                 EndDate = dto.EndDate,
                 Reason = dto.Reason,
-                Status = "Approved", // HR ekliyorsa direkt onaylı
+                Status = "İzinli", // HR ekliyorsa direkt onaylı
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             };
@@ -181,6 +181,31 @@ namespace HRManagementSystem.Application.Services
             _context.Leaves.Remove(leave);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task AutoUpdateEmployeeStatusAsync()
+        {
+            var today = DateTime.UtcNow.Date;
+
+            // Bugün veya daha önce biten ve hâlâ "İzinli" olan izinleri bul
+            var expiredLeaves = await _context.Leaves
+                .Where(l => l.Status == "İzinli" && l.EndDate < today)
+                .ToListAsync();
+
+            foreach (var leave in expiredLeaves)
+            {
+                // İlgili employee'yi bul
+                var employee = await _context.Employees.FindAsync(leave.EmployeeId);
+                if (employee != null && employee.WorkingStatus != "Çalışıyor")
+                {
+                    employee.WorkingStatus = "Çalışıyor";
+                }
+
+                // Leave kaydının statüsü de istersek güncellenebilir
+                leave.Status = "Tamamlandı"; // ya da "Bitti", "Geçmiş" gibi başka bir status
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }
