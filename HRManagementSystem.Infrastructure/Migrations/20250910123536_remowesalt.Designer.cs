@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HRManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(HRDbContext))]
-    [Migration("20250910093211_AddSaltToUser")]
-    partial class AddSaltToUser
+    [Migration("20250910123536_remowesalt")]
+    partial class remowesalt
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

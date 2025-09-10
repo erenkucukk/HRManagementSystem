@@ -14,7 +14,6 @@ namespace HRManagementSystem.Domain.Entities
         public string PasswordHash { get; set; }
         public string Role { get; set; } // "HRManager" veya "Personnel" gibi
         public int? EmployeeId { get; set; }
-        public string Salt { get; set; }
         public Employee? Employee { get; set; }
     }
 }
