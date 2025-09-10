@@ -2,6 +2,7 @@
 using HRManagementSystem.Application.Leave.DTOs;
 using HRManagementSystem.Domain.Entities;
 using HRManagementSystem.Domain.Entities;
+using HRManagementSystem.Domain.Enums;
 using HRManagementSystem.Infrastructure.Persistence;
 using HRManagementSystem.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,32 @@ namespace HRManagementSystem.Application.Services
             _context = context;
         }
 
+        // Personelin sadece kendi izinlerini görebilmesi için
+        public async Task<List<LeaveDto>> GetLeavesByEmployeeIdAsync(int employeeId)
+        {
+            var leaves = await _context.Leaves
+                .Include(l => l.Employee)
+                .Where(l => l.EmployeeId == employeeId)
+                .OrderByDescending(l => l.StartDate)
+                .ToListAsync();
+
+            return leaves.Select(l => new LeaveDto
+            {
+                Id = l.Id,
+                EmployeeId = l.EmployeeId,
+                EmployeeName = l.Employee != null
+                    ? $"{l.Employee.FirstName} {l.Employee.LastName}"
+                    : "",
+                LeaveType = l.LeaveType,
+                StartDate = l.StartDate,
+                EndDate = l.EndDate,
+                Reason = l.Reason,
+                Status = l.Status.ToString(),
+                CreatedAt = l.CreatedAt,
+                UpdatedAt = l.UpdatedAt
+            }).ToList();
+        }
+
         public async Task<LeaveDto> CreateLeaveAsync(CreateLeaveDto dto)
         {
             // 1. Employee kontrolü
@@ -37,24 +64,14 @@ namespace HRManagementSystem.Application.Services
                 StartDate = dto.StartDate,
                 EndDate = dto.EndDate,
                 Reason = dto.Reason,
-                Status = "İzinli", // HR ekliyorsa direkt onaylı
+                Status = LeaveStatus.Beklemede, // Enum kullanımı
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             };
 
-            // 3. Kullanılan izin güncellemesi
-            // İzin süresi hesaplanıyor (başlangıç ve bitiş dahil)
-            int leaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
-            if (leaveDays < 0) leaveDays = 0; // Negatif gün olmasın
-
-            employee.UsedLeave += leaveDays;
-            employee.WorkingStatus = "İzinli";
-            // 4. Veritabanına ekle
             _context.Leaves.Add(leave);
-            _context.Employees.Update(employee); // Güncellenen employee'yi de ekle
             await _context.SaveChangesAsync();
 
-            // 5. DTO olarak geri döndür
             return await GetLeaveByIdAsync(leave.Id);
         }
 
@@ -77,7 +94,7 @@ namespace HRManagementSystem.Application.Services
                 StartDate = leave.StartDate,
                 EndDate = leave.EndDate,
                 Reason = leave.Reason,
-                Status = leave.Status,
+                Status = leave.Status.ToString(),
                 CreatedAt = leave.CreatedAt,
                 UpdatedAt = leave.UpdatedAt
             };
@@ -101,7 +118,7 @@ namespace HRManagementSystem.Application.Services
                 StartDate = l.StartDate,
                 EndDate = l.EndDate,
                 Reason = l.Reason,
-                Status = l.Status,
+                Status = l.Status.ToString(),
                 CreatedAt = l.CreatedAt,
                 UpdatedAt = l.UpdatedAt
             }).ToList();
@@ -136,14 +153,13 @@ namespace HRManagementSystem.Application.Services
             leave.StartDate = dto.StartDate;
             leave.EndDate = dto.EndDate;
             leave.Reason = dto.Reason;
-            leave.Status = dto.Status;
+            leave.Status = Enum.TryParse<LeaveStatus>(dto.Status, out var statusEnum) ? statusEnum : leave.Status;
             leave.UpdatedAt = DateTime.UtcNow;
 
             _context.Update(leave);
             await _context.SaveChangesAsync();
             return true;
         }
-
 
         public async Task<bool> DeleteLeaveAsync(int id)
         {
@@ -177,8 +193,52 @@ namespace HRManagementSystem.Application.Services
                 }
             }
 
-            // 3. Veritabanından kaldır
             _context.Leaves.Remove(leave);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        // HRManager izin onaylar
+        public async Task<bool> ApproveLeaveAsync(int leaveId)
+        {
+            var leave = await _context.Leaves
+                .Include(l => l.Employee)
+                .FirstOrDefaultAsync(l => l.Id == leaveId);
+
+            if (leave == null || leave.Status == LeaveStatus.Izinli) return false;
+
+            leave.Status = LeaveStatus.Izinli;
+            leave.UpdatedAt = DateTime.UtcNow;
+
+            // Kullanılan izin güncellemesi
+            var employee = leave.Employee;
+            if (employee != null)
+            {
+                int leaveDays = (int)(leave.EndDate.Date - leave.StartDate.Date).TotalDays + 1;
+                if (leaveDays < 0) leaveDays = 0;
+                employee.UsedLeave += leaveDays;
+                employee.WorkingStatus = "İzinli";
+                _context.Employees.Update(employee);
+            }
+
+            _context.Leaves.Update(leave);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        // HRManager izin reddeder
+        public async Task<bool> RejectLeaveAsync(int leaveId)
+        {
+            var leave = await _context.Leaves
+                .Include(l => l.Employee)
+                .FirstOrDefaultAsync(l => l.Id == leaveId);
+
+            if (leave == null || leave.Status == LeaveStatus.Reddedildi) return false;
+
+            leave.Status = LeaveStatus.Reddedildi;
+            leave.UpdatedAt = DateTime.UtcNow;
+
+            _context.Leaves.Update(leave);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -189,7 +249,7 @@ namespace HRManagementSystem.Application.Services
 
             // Bugün veya daha önce biten ve hâlâ "İzinli" olan izinleri bul
             var expiredLeaves = await _context.Leaves
-                .Where(l => l.Status == "İzinli" && l.EndDate < today)
+                .Where(l => l.Status == LeaveStatus.Izinli && l.EndDate < today)
                 .ToListAsync();
 
             foreach (var leave in expiredLeaves)
@@ -202,7 +262,7 @@ namespace HRManagementSystem.Application.Services
                 }
 
                 // Leave kaydının statüsü de istersek güncellenebilir
-                leave.Status = "Tamamlandı"; // ya da "Bitti", "Geçmiş" gibi başka bir status
+                leave.Status = LeaveStatus.Tamamlandi;
             }
 
             await _context.SaveChangesAsync();

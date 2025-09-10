@@ -1,4 +1,6 @@
-﻿using HRManagementSystem.Infrastructure.Persistence;
+﻿using HRManagementSystem.Domain.Enums;
+using HRManagementSystem.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +12,36 @@ namespace HRManagementSystem.Application.Services
     public class LeaveJobService
     {
         private readonly HRDbContext _context;
-        public LeaveJobService(HRDbContext context) => _context = context;
 
+        public LeaveJobService(HRDbContext context)
+        {
+            _context = context;
+        }
+
+        /// <summary>
+        /// Süresi geçen ve hâlâ "İzinli" görünen izinleri ve çalışan statülerini otomatik günceller.
+        /// Bu methodu Hangfire ile periyodik olarak çağırabilirsin.
+        /// </summary>
         public async Task AutoUpdateEmployeeStatusAsync()
         {
             var today = DateTime.UtcNow.Date;
-            var expiredLeaves = _context.Leaves
-                .Where(l => l.Status == "İzinli" && l.EndDate < today)
-                .ToList();
+
+            // Süresi bitmiş ve hâlâ izinli olan izinleri çek
+            var expiredLeaves = await _context.Leaves
+                .Where(l => l.Status == LeaveStatus.Izinli && l.EndDate < today)
+                .ToListAsync();
 
             foreach (var leave in expiredLeaves)
             {
-                var employee = _context.Employees.Find(leave.EmployeeId);
+                // İlgili çalışanı getir
+                var employee = await _context.Employees.FindAsync(leave.EmployeeId);
                 if (employee != null && employee.WorkingStatus != "Çalışıyor")
+                {
                     employee.WorkingStatus = "Çalışıyor";
+                }
 
-                leave.Status = "Tamamlandı";
+                // İzin statüsünü güncelle
+                leave.Status = LeaveStatus.Tamamlandi;
             }
 
             await _context.SaveChangesAsync();

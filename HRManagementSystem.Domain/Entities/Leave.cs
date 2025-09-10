@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRManagementSystem.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace HRManagementSystem.Domain.Entities
 
 
         public string Reason { get; set; } = string.Empty; // Açıklama
-        public string Status { get; set; } = "Pending"; // Pending, Approved, Rejected
+        public LeaveStatus Status { get; set; } = LeaveStatus.Beklemede; // Pending, Approved, Rejected
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

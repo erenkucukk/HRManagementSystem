@@ -8,7 +8,7 @@ namespace HRManagementSystem.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Tüm endpointler için yetkilendirme gerekli
+    [Authorize(Roles = "HRManager")] // Tüm endpointler için yetkilendirme gerekli
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;

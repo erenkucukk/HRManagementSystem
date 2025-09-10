@@ -11,7 +11,7 @@ namespace HRManagementSystem.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "HRManager")]
     public class EmployeeController : ControllerBase
     {
         private readonly EmployeeService _employeeService;

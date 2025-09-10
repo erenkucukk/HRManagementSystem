@@ -1,4 +1,5 @@
 ﻿using HRManagementSystem.Application.Services;
+using HRManagementSystem.Application.Users.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,20 @@ namespace HRManagementSystem.API.Controllers
                 return Unauthorized("Invalid credentials");
 
             return Ok(response); // artık LoginResponseDto dönüyor
+        }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDto>> Register([FromBody] RegisterUserDto dto)
+        {
+            try
+            {
+                var user = await _authService.RegisterAsync(dto);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 

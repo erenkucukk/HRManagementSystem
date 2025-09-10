@@ -69,6 +69,10 @@ namespace HRManagementSystem.Infrastructure.Persistence
                 .HasForeignKey(er => er.ExpenseHistoryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Leave>()
+                .Property(l => l.Status)
+                .HasConversion<string>();
+
             base.OnModelCreating(modelBuilder);
         }
     }

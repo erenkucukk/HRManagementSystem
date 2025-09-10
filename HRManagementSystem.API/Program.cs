@@ -150,7 +150,7 @@ using (var scope = app.Services.CreateScope())
     RecurringJob.AddOrUpdate(
         "AutoUpdateEmployeeStatus",
         () => jobService.AutoUpdateEmployeeStatusAsync(),
-            "0 3 * * *" // Cron.Daily de yazabilirsin (her gece 00:00)
+            "0 3 * * *" //  (her gece 03:00)
     );
 }
 

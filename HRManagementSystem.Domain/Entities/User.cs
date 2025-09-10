@@ -9,8 +9,12 @@ namespace HRManagementSystem.Domain.Entities
     public class User
     {
         public int Id { get; set; }
-        public string FullName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public string Role { get; set; } // "HRManager" veya "Personnel" gibi
+        public int? EmployeeId { get; set; }
+        public string Salt { get; set; }
+        public Employee? Employee { get; set; }
     }
 }

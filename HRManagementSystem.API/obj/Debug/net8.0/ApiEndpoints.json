@@ -16,6 +16,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HRManagementSystem.API.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "HRManagementSystem.Application.Users.DTOs.RegisterUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HRManagementSystem.Application.Users.DTOs.UserDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HRManagementSystem.API.Controllers.DepartmentController",
     "Method": "GetAll",
     "RelativePath": "api/Department",
@@ -311,9 +337,83 @@
     ]
   },
   {
-    "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
+    "ContainingType": "HRManagementSystem.API.Controllers.HRLeaveController",
+    "Method": "GetById",
+    "RelativePath": "api/hr/leave/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HRManagementSystem.Application.Leave.DTOs.LeaveDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HRManagementSystem.API.Controllers.HRLeaveController",
+    "Method": "Delete",
+    "RelativePath": "api/hr/leave/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRManagementSystem.API.Controllers.HRLeaveController",
+    "Method": "Approve",
+    "RelativePath": "api/hr/leave/{id}/approve",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRManagementSystem.API.Controllers.HRLeaveController",
+    "Method": "Reject",
+    "RelativePath": "api/hr/leave/{id}/reject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HRManagementSystem.API.Controllers.HRLeaveController",
     "Method": "GetAll",
-    "RelativePath": "api/Leave",
+    "RelativePath": "api/hr/leave/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -331,9 +431,9 @@
     ]
   },
   {
-    "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
+    "ContainingType": "HRManagementSystem.API.Controllers.PersonnelLeaveController",
     "Method": "Create",
-    "RelativePath": "api/Leave",
+    "RelativePath": "api/personnel/leave",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -357,9 +457,9 @@
     ]
   },
   {
-    "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
+    "ContainingType": "HRManagementSystem.API.Controllers.PersonnelLeaveController",
     "Method": "GetById",
-    "RelativePath": "api/Leave/{id}",
+    "RelativePath": "api/personnel/leave/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -383,41 +483,24 @@
     ]
   },
   {
-    "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
-    "Method": "Update",
-    "RelativePath": "api/Leave/{id}",
-    "HttpMethod": "PUT",
+    "ContainingType": "HRManagementSystem.API.Controllers.PersonnelLeaveController",
+    "Method": "GetMyLeaves",
+    "RelativePath": "api/personnel/leave/my-leaves",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
+    "Parameters": [],
+    "ReturnTypes": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "HRManagementSystem.Application.Leave.DTOs.UpdateLeaveDto",
-        "IsRequired": true
+        "Type": "System.Collections.Generic.List\u00601[[HRManagementSystem.Application.Leave.DTOs.LeaveDto, HRManagementSystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HRManagementSystem.API.Controllers.LeaveController",
-    "Method": "Delete",
-    "RelativePath": "api/Leave/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
+    ]
   },
   {
     "ContainingType": "HRManagementSystem.API.Controllers.UserController",

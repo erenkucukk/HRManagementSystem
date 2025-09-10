@@ -1,6 +1,7 @@
 ﻿using HRManagementSystem.Application.Users.DTOs;
 using HRManagementSystem.Domain.Entities;
 using HRManagementSystem.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,8 @@ namespace HRManagementSystem.Application.Services
             {
                 FullName = createUserDto.FullName,
                 Email = createUserDto.Email,
-                PasswordHash = passwordHash
+                PasswordHash = passwordHash,
+                Role = createUserDto.Role
             };
 
             _context.Users.Add(user);
@@ -38,7 +40,8 @@ namespace HRManagementSystem.Application.Services
             {
                 Id = user.Id,
                 FullName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role
             };
         }
 
@@ -54,7 +57,8 @@ namespace HRManagementSystem.Application.Services
             {
                 Id = user.Id,
                 FullName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role
             };
         }
 
@@ -75,7 +79,8 @@ namespace HRManagementSystem.Application.Services
             {
                 Id = user.Id,
                 FullName = user.FullName,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role
             };
         }
 
@@ -90,6 +95,15 @@ namespace HRManagementSystem.Application.Services
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        // Kullanıcıdan employeeId bulma fonksiyonu (LeaveController için gerekli)
+        public async Task<int?> GetEmployeeIdByUserIdAsync(int userId)
+        {
+            var user = await _context.Users
+                .Include(u => u.Employee)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+            return user?.EmployeeId;
         }
 
         // Basit karma fonksiyonu (BCrypt veya Argon2 daha iyidir)
