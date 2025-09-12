@@ -8,6 +8,7 @@ using HRManagementSystem.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,8 @@ namespace HRManagementSystem.Application.Services
         {
             var employees = await _context.Employees
                 .Include(e => e.Department)
+                .Include(e => e.ExpenseHistories)
+                    .ThenInclude(h => h.Receipts)
                 .ToListAsync();
 
             return employees
@@ -48,7 +51,22 @@ namespace HRManagementSystem.Application.Services
                     TotalLeave = e.TotalLeave,
                     UsedLeave = e.UsedLeave,
                     DepartmentId = e.DepartmentId,
-                    DepartmentName = e.Department?.Name ?? string.Empty
+                    DepartmentName = e.Department?.Name ?? string.Empty,
+                    Salary = e.Salary,
+                    MealCost = e.MealCost,
+                    TransportCost = e.TransportCost,
+                    OtherCost = e.OtherCost,
+                    ExpenseHistory = e.ExpenseHistories?
+                        .Select(h => new ExpenseHistoryDto
+                        {
+                            Id = h.Id,
+                            Amount = h.Amount,
+                            Date = h.Date,
+                            MealCost = h.MealCost,
+                            TransportCost = h.TransportCost,
+                            OtherCost = h.OtherCost,
+                            ReceiptUrls = h.Receipts?.Select(r => r.FileUrl).ToList() ?? new List<string>()
+                        }).ToList() ?? new List<ExpenseHistoryDto>()
                 })
                 .ToList();
         }
@@ -78,7 +96,11 @@ namespace HRManagementSystem.Application.Services
                 TotalLeave = employee.TotalLeave,
                 UsedLeave = employee.UsedLeave,
                 DepartmentId = employee.DepartmentId,
-                DepartmentName = employee.Department?.Name ?? string.Empty
+                DepartmentName = employee.Department?.Name ?? string.Empty,
+                Salary = employee.Salary,
+                MealCost = employee.MealCost,
+                TransportCost = employee.TransportCost,
+                OtherCost = employee.OtherCost
             };
         }
 
@@ -99,7 +121,8 @@ namespace HRManagementSystem.Application.Services
                 StartDate = dto.StartDate,
                 TotalLeave = dto.TotalLeave,
                 UsedLeave = dto.UsedLeave,
-                DepartmentId = dto.DepartmentId
+                DepartmentId = dto.DepartmentId,
+
             };
 
             await _employeeRepository.AddAsync(employee);
@@ -142,10 +165,10 @@ namespace HRManagementSystem.Application.Services
             return true;
         }
 
-        public async Task<bool> AddCostAsync(int employeeId, UpdateCostDto dto)
+        public async Task<ExpenseHistoryDto?> AddCostAsync(int employeeId, UpdateCostDto dto)
         {
             var employee = await _employeeRepository.GetByIdAsync(employeeId);
-            if (employee == null) return false;
+            if (employee == null) return null;
 
             employee.Salary += dto.Salary ?? 0;
             employee.MealCost += dto.MealCost ?? 0;
@@ -161,7 +184,6 @@ namespace HRManagementSystem.Application.Services
                 Receipts = new List<ExpenseReceipt>()
             };
 
-            // Fiş dosyalarını kaydet (örnek, wwwroot/uploads)
             if (dto.Receipts != null && dto.Receipts.Any())
             {
                 foreach (var file in dto.Receipts)
@@ -179,7 +201,15 @@ namespace HRManagementSystem.Application.Services
             employee.ExpenseHistories.Add(expenseHistory);
             _employeeRepository.Update(employee);
             await _employeeRepository.SaveChangesAsync();
-            return true;
+
+            // Dönüş için oluştur:
+            return new ExpenseHistoryDto
+            {
+                Id = expenseHistory.Id,
+                Amount = expenseHistory.Amount,
+                Date = expenseHistory.Date,
+                ReceiptUrls = expenseHistory.Receipts.Select(r => r.FileUrl).ToList()
+            };
         }
 
         public async Task<List<ExpenseHistoryDto>> GetExpenseHistoryAsync(int employeeId, DateTime? date = null)

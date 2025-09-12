@@ -22,6 +22,43 @@ namespace HRManagementSystem.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("HRManagementSystem.Domain.Entities.Candidate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CvName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CvUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Candidates");
+                });
+
             modelBuilder.Entity("HRManagementSystem.Domain.Entities.Department", b =>
                 {
                     b.Property<int>("Id")
@@ -155,6 +192,15 @@ namespace HRManagementSystem.Infrastructure.Migrations
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
+
+                    b.Property<decimal?>("MealCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("OtherCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("TransportCost")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

@@ -11,6 +11,9 @@ namespace HRManagementSystem.Application.Expense.DTOs
         public int Id { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
+        public decimal? MealCost { get; set; }
+        public decimal? TransportCost { get; set; }
+        public decimal? OtherCost { get; set; }
         public List<string> ReceiptUrls { get; set; }
     }
 }

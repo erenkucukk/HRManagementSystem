@@ -18,7 +18,6 @@ namespace HRManagementSystem.Infrastructure.Persistence
         public DbSet<Leave> Leaves { get; set; }
         public DbSet<ExpenseHistory> ExpenseHistories { get; set; }
         public DbSet<ExpenseReceipt> ExpenseReceipts { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Department - Employee

@@ -65,9 +65,9 @@ namespace HRManagementSystem.API.Controllers
         [HttpPut("{id}/cost")]
         public async Task<IActionResult> AddCost(int id, [FromForm] UpdateCostDto dto)
         {
-            var result = await _employeeService.AddCostAsync(id, dto);
-            if (!result) return NotFound();
-            return Ok();
+            var expenseHistory = await _employeeService.AddCostAsync(id, dto);
+            if (expenseHistory == null) return NotFound();
+            return Ok(expenseHistory);
         }
 
         [HttpGet("{id}/expense-history")]

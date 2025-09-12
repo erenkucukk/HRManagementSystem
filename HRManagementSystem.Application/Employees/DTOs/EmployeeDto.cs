@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRManagementSystem.Application.Expense.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,10 @@ namespace HRManagementSystem.Application.Employees.DTOs
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
         public string Adres { get; set; }
+        public decimal Salary { get; set; }
+        public decimal MealCost { get; set; }
+        public decimal TransportCost { get; set; }
+        public decimal OtherCost { get; set; }
+        public List<ExpenseHistoryDto> ExpenseHistory { get; set; }
     }
 }

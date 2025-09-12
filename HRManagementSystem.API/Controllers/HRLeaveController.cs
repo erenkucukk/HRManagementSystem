@@ -55,5 +55,19 @@ namespace HRManagementSystem.API.Controllers
             if (!result) return NotFound();
             return NoContent();
         }
+
+        [HttpGet("person/{employeeId}")]
+        public async Task<ActionResult<List<LeaveDto>>> GetLeavesByEmployeeId(int employeeId)
+        {
+            var leaves = await _leaveService.GetLeavesByEmployeeIdAsync(employeeId);
+            return Ok(leaves);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<LeaveDto>> Create([FromBody] CreateLeaveDto dto)
+        {
+            var leave = await _leaveService.CreateLeaveAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = leave.Id }, leave);
+        }
     }
 }

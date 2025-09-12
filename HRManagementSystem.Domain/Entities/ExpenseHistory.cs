@@ -11,6 +11,9 @@ namespace HRManagementSystem.Domain.Entities
         public int Id { get; set; }
         public int EmployeeId { get; set; }
         public decimal Amount { get; set; }
+        public decimal? MealCost { get; set; }          // Eklendi: Yemek gideri
+        public decimal? TransportCost { get; set; }     // Eklendi: Servis gideri
+        public decimal? OtherCost { get; set; }         // Eklendi: Diğer giderler
         public DateTime Date { get; set; }
         public Employee Employee { get; set; }
         public ICollection<ExpenseReceipt> Receipts { get; set; }

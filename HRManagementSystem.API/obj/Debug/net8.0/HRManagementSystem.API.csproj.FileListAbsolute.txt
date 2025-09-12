@@ -184,6 +184,7 @@ C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\n
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.AssemblyInfoInputs.cache
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.AssemblyInfo.cs
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.csproj.CoreCompileInputs.cache
+C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\HRManagementSystem.API.sourcelink.json
 C:\Users\asus\source\repos\HRManagementSystem\HRManagementSystem.API\obj\Debug\net8.0\rjimswa.dswa.cache.json

@@ -743,6 +743,103 @@
         }
       }
     },
+    "/api/hr/leave/person/{employeeId}": {
+      "get": {
+        "tags": [
+          "HRLeave"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaveDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaveDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaveDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/hr/leave": {
+      "post": {
+        "tags": [
+          "HRLeave"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLeaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLeaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLeaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaveDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaveDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaveDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/personnel/leave/my-leaves": {
       "get": {
         "tags": [
@@ -1187,6 +1284,29 @@
           "adres": {
             "type": "string",
             "nullable": true
+          },
+          "salary": {
+            "type": "number",
+            "format": "double"
+          },
+          "mealCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "transportCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "otherCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "expenseHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseHistoryDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1205,6 +1325,21 @@
           "date": {
             "type": "string",
             "format": "date-time"
+          },
+          "mealCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "transportCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "otherCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           },
           "receiptUrls": {
             "type": "array",
